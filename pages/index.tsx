@@ -1,9 +1,23 @@
-import React, { Component } from 'react';
+// import type { ReactElement } from 'react';
+// import BaseLayout from '@/layouts/base';
 
-class index extends Component {
-  render() {
-    return <div>안녕!! 실시간 적용</div>;
-  }
+// const Index = () => {
+//   return <div>Index페이지</div>;
+// };
+
+// Index.getLayout = function getLayout(page: ReactElement) {
+//   return <BaseLayout>{page}</BaseLayout>;
+// };
+
+// export default Index;
+
+import type { ReactElement } from 'react';
+import Layout from '@/layouts/base';
+
+export default function Page() {
+  return <div>뭐지</div>;
 }
 
-export default index;
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};

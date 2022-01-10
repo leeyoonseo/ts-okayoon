@@ -1,24 +1,51 @@
-// import App from "next/app";
-
-import { ThemeProvider } from 'styled-components';
-import GlobalStyle from '../assets/styles/globalStyle';
-import { theme } from '../assets/styles/theme';
-
-import type { AppProps /*, AppContext */ } from 'next/app';
+import type { ReactElement, ReactNode } from 'react';
+import type { NextPage } from 'next';
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
+import { bucketUrl } from '@/constants/index';
+
+import GlobalStyle from '../assets/styles/globalStyle';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../assets/styles/theme';
+import 'antd/dist/antd.css';
+
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout || ((page) => page);
+  return getLayout(
     <>
       <Head>
-        <title>타이틀</title>
+        <meta charSet='utf-8' />
+        <meta http-euqiv='x-UA-Compatible' content='ie=edge' />
+        <meta name='Robot' content='all' />
+        <meta name='author' content='Okayoon.lee' />
+        <meta name='description' content='Front-end Web Developer Portfolio Site: react, redux' />
+        <link rel='shortcut icon' href={`${bucketUrl}/favicon.ico`} type='image/x-icon' />
+        <meta property='og:image' content='../public/icon_logo.png' />
+        <meta property='og:description' content='Front-end Web Developer Portfolio Site: react, redux' />
+        <meta property='og:title' content='Okayoon' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no' />
+        <title>OKAYOON</title>
       </Head>
+
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
-    </>
+    </>,
   );
 }
 
-export default MyApp;
+// TODO:
+// propTypes: prop-types
+// _error.js / 404.js
+// store => configurestore
+// withRedux ??
