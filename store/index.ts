@@ -1,30 +1,23 @@
-// import { configureStore } from '@reduxjs/toolkit';
-// // ...
-
-// export const store = configureStore({
-//   reducer: {
-//     posts: postsReducer,
-//     comments: commentsReducer,
-//     users: usersReducer,
-//   },
-// });
-
-// // Infer the `RootState` and `AppDispatch` types from the store itself
-// export type RootState = ReturnType<typeof store.getState>;
-// // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-// export type AppDispatch = typeof store.dispatch;
-
-// TODO: 예제
 import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
+import { all, fork } from 'redux-saga/effects';
 import logger from 'redux-logger';
-import reducer from '../reducer/index';
+import reducer from '@/reducer/index';
+import { authSaga } from './modules/auth.saga';
 
-// const middleware = [...getDefaultMiddleware(), logger];
+const sagaMiddleware = createSagaMiddleware();
+
+function* saga() {
+  yield all([fork(authSaga)]);
+}
+
 const store = configureStore({
   reducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
-  // middleware,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger, sagaMiddleware),
+  devTools: process.env.NODE_ENV !== 'production',
 });
+
+sagaMiddleware.run(saga);
 
 export type AppDispatch = typeof store.dispatch;
 export default store;

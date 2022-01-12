@@ -1,24 +1,32 @@
 import React, { FormEvent, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ReducerType } from '../reducer/index';
-import { User, addUser } from '../reducer/users';
+import { InitialState, User, SetUser } from '../reducer/modules/auth.reducer';
 
 import Layout from './layouts/base';
 import type { ReactElement } from 'react';
 export default function Index() {
-  const users = useSelector<ReducerType, User[]>((state) => state.users);
+  const user = useSelector<ReducerType, User>(({ auth }) => auth.user);
   const dispatch = useDispatch();
+  // const [name, setName] = useState('');
 
-  const [name, setName] = useState('');
+  // const handleChangeName = (e: any) => {
+  //   setName(e.target.value);
+  // };
 
-  const handleChangeName = (e: any) => {
-    setName(e.target.value);
-  };
-
-  const handleAddUser = (e: FormEvent) => {
+  const handleSetUser = (e: FormEvent) => {
     e.preventDefault();
-    dispatch(addUser({ name } as User));
-    setName('');
+    const state = {
+      user: {
+        originId: 1234,
+        isManager: true,
+        id: 'okayoon',
+        avatar: 'ZOE',
+        nickname: 'zoe.e',
+      },
+    } as InitialState;
+
+    dispatch(SetUser(state));
   };
 
   return (
@@ -26,14 +34,15 @@ export default function Index() {
       <h1>Index 파일</h1>
       <div>
         <strong>Reducer테스트</strong>
-        <form onSubmit={handleAddUser}>
-          <input type='text' value={name} onChange={handleChangeName} />
-          <button type='submit'>Add User</button>
-        </form>
+        <button onClick={handleSetUser}>버튼</button>
 
-        {users.map((user) => (
-          <div key={user.id}>{user.name}</div>
-        ))}
+        <ul key={user.originId}>
+          <li>{user.originId}</li>
+          <li>{user.isManager}</li>
+          <li>{user.id}</li>
+          <li>{user.avatar}</li>
+          <li>{user.nickname}</li>
+        </ul>
       </div>
     </>
   );

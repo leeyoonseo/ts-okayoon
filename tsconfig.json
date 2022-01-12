@@ -3,6 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
+      "@/store/*": ["store/*"],
+      "@/reducer/*": ["reducer/*"],
       "@/constants/*": ["constants/*"],
     },
     "target": "es5", 
