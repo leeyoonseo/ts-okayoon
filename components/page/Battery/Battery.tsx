@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import { BatteryOutline, BatteryGauge } from './Battery.styled';
 
-function getCurrentGauge(date: Date): number {
+const getCurrentGauge = (date: Date): number => {
   // TODO: dayjs type이 뭐지?
   const time: any = dayjs(date);
   const oneHundredPercent = 100;
@@ -14,7 +14,7 @@ function getCurrentGauge(date: Date): number {
     oneHundredPercent -
     Math.floor(oneHundredPercent / (DaysToMinutes / currentMinutes))
   );
-}
+};
 
 const Battery = () => {
   const date: Date = new Date();
