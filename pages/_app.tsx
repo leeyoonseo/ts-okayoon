@@ -4,6 +4,9 @@ import store from '../store/index';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import dayjs from 'dayjs';
+import isLeapYear from 'dayjs/plugin/isLeapYear';
+import 'dayjs/locale/ko'; // import locale
 
 import { bucketUrl } from '@/constants/index';
 
@@ -22,6 +25,10 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+// dayjs
+dayjs.extend(isLeapYear);
+dayjs.locale('ko');
+
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
   return getLayout(
@@ -32,12 +39,25 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           <meta http-euqiv='x-UA-Compatible' content='ie=edge' />
           <meta name='Robot' content='all' />
           <meta name='author' content='Okayoon.lee' />
-          <meta name='description' content='Front-end Web Developer Portfolio Site: react, redux' />
-          <link rel='shortcut icon' href={`${bucketUrl}/favicon.ico`} type='image/x-icon' />
+          <meta
+            name='description'
+            content='Front-end Web Developer Portfolio Site: react, redux'
+          />
+          <link
+            rel='shortcut icon'
+            href={`${bucketUrl}/favicon.ico`}
+            type='image/x-icon'
+          />
           <meta property='og:image' content='../public/icon_logo.png' />
-          <meta property='og:description' content='Front-end Web Developer Portfolio Site: react, redux' />
+          <meta
+            property='og:description'
+            content='Front-end Web Developer Portfolio Site: react, redux'
+          />
           <meta property='og:title' content='Okayoon' />
-          <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no' />
+          <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0, user-scalable=no'
+          />
           <title>OKAYOON</title>
         </Head>
 

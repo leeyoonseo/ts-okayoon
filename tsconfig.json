@@ -1,6 +1,8 @@
 {
   "compilerOptions": { 
     "baseUrl": ".",
+    // TODO:
+    // "outDir": "./dist",
     "paths": {
       "@/components/*": ["components/*"],
       "@/store/*": ["store/*"],
@@ -14,6 +16,7 @@
       "esnext"
     ],
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "checkJs": true,
     "skipLibCheck": true,
     "strict": true,
