@@ -1,0 +1,76 @@
+import styled from 'styled-components';
+import { CloseOutlined } from '@ant-design/icons';
+
+export const Wrap = styled.div`
+  box-sizing: border-box;
+  display: block;
+  /* display: ${(props) => (props.visible ? 'block' : 'none')}; */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto;
+  outline: 0;
+`;
+
+export const Overlay = styled.div`
+  box-sizing: border-box;
+  display: block;
+  /* display: ${(props) => (props.visible ? 'block' : 'none')}; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+`;
+
+export const Contents = styled.div`
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  border-radius: 10px;
+  width: 360px;
+  max-width: 480px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  padding: 20px;
+`;
+
+export const CloseButton = styled.button`
+  width: 25px;
+  height: 25px;
+  margin-left: auto;
+  cursor: pointer;
+`;
+
+export const CloseIcon = styled(CloseOutlined)`
+  width: 20px;
+  height: 20px;
+`;
+
+export const Header = styled.div`
+  display: flex;
+`;
+
+export const Title = styled.strong`
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 10px;
+`;
+
+export const Body = styled.div`
+  text-align: center;
+`;
+
+export const Footer = styled.div``;
+
+export const CancelButton = styled.button`
+  color: ${({ color }) => color};
+`;
+export const ConfirmButton = styled.button``;
