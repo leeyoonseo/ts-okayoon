@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
-import { IProps } from '../SystemTools/SystemTools';
+import { Props } from '../SystemTools/SystemTools';
 
-const Clock = (props: IProps) => {
+const Clock = (props: Props) => {
   const [currentTime, setCurrentTime] = useState(
     dayjs(props.time).format('hh:mm'),
   );

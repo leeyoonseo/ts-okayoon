@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
 import { BatteryOutline, BatteryGauge } from './Battery.styled';
-import { IProps } from '../SystemTools/SystemTools';
+import { Props } from '../SystemTools/SystemTools';
 
 const getCurrentGauge = (date: Date): number => {
   // TODO: dayjs type이 뭐지?
@@ -17,7 +17,7 @@ const getCurrentGauge = (date: Date): number => {
   );
 };
 
-const Battery = (props: IProps) => {
+const Battery = (props: Props) => {
   const [currentGauge, setCurrentGauge] = useState(getCurrentGauge(props.time));
 
   useEffect(() => {

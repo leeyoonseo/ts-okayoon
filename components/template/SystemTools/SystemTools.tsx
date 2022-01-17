@@ -4,18 +4,13 @@ import ToolWifi from '@/components/template/ToolWifi/ToolWifi';
 import Battery from '@/components/template/Battery/Battery';
 import Clock from '@/components/template/Clock/Clock';
 
-export interface IProps {
+export interface Props {
   time: Date;
 }
 
 const SystemTools = () => {
   const [isSoundActivated, setIsSoundActivated] = useState(true);
   const [time, setTime] = useState(new Date());
-
-  const props = {
-    time,
-  };
-
   const handleSound = () => {
     setIsSoundActivated(!isSoundActivated);
   };
@@ -34,10 +29,10 @@ const SystemTools = () => {
         )}
       </S.Box>
       <S.Box>
-        <Battery {...props} />
+        <Battery time={time} />
       </S.Box>
       <S.Box>
-        <Clock {...props} />
+        <Clock time={time} />
       </S.Box>
     </S.Wrapper>
   );

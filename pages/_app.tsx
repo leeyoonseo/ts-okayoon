@@ -12,7 +12,7 @@ import { bucketUrl } from '@/constants/index';
 
 import GlobalStyle from '../assets/styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../assets/styles/theme';
+import theme from '../assets/styles/theme';
 import 'antd/dist/antd.css';
 
 import type { ReactElement, ReactNode } from 'react';
