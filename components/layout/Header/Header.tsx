@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './Header.styled';
-import SystemTools from '@/components/page/SystemTools/SystemTools';
+import SystemTools from '@/components/template/SystemTools/SystemTools';
 
 const Header = () => {
   return (

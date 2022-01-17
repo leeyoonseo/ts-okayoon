@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import * as S from './SystemTools.styled';
-import ToolWifi from '@/components/page/ToolWifi/ToolWifi';
-import Battery from '@/components/page/Battery/Battery';
-import Clock from '@/components/page/Clock/Clock';
+import ToolWifi from '@/components/template/ToolWifi/ToolWifi';
+import Battery from '@/components/template/Battery/Battery';
+import Clock from '@/components/template/Clock/Clock';
 
 export interface IProps {
   time: Date;
@@ -13,10 +11,9 @@ export interface IProps {
 const SystemTools = () => {
   const [isSoundActivated, setIsSoundActivated] = useState(true);
   const [time, setTime] = useState(new Date());
-  // const time: Date = new Date();
 
   const props = {
-    time: new Date(),
+    time,
   };
 
   const handleSound = () => {
@@ -42,7 +39,6 @@ const SystemTools = () => {
       <S.Box>
         <Clock {...props} />
       </S.Box>
-      <S.Box>SystemTools</S.Box>
     </S.Wrapper>
   );
 };

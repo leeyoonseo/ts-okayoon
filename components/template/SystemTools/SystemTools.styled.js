@@ -12,6 +12,10 @@ export const Wrapper = styled.div`
 export const Box = styled.div`
   display: inline-block;
   vertical-align: middle;
+
+  & + div {
+    margin-left: 7px;
+  }
 `;
 
 export const SoundIcon = styled(SoundOutlined)`
