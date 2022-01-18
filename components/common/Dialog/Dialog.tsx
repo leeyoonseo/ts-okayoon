@@ -1,4 +1,5 @@
 import React from 'react';
+// import { createPortal } from 'react-dom';
 import * as D from './Dialog.styled';
 import BaseButton from '@/components/common/Button/Button';
 export interface IDialog {

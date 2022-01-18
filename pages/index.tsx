@@ -8,6 +8,9 @@ import type { ReactElement } from 'react';
 
 import Dialog, { TYPE } from '@/components/common/Dialog/Dialog';
 import BaseButton from '@/components/common/Button/Button';
+
+// D test
+import Modal from '@/components/common/Modal/Modal';
 export default function Index() {
   const user = useSelector<ReducerType, User>(({ auth }) => auth.user);
   const dispatch = useDispatch();
@@ -42,9 +45,29 @@ export default function Index() {
     console.log('handleConfirm === callback임');
   };
 
+  // D: 테스트
+  const [clicks, setClicks] = useState(0);
+  const handleTest = () => {
+    console.log('handleTest');
+    // 이것은 Child에 있는 버튼이 클릭 되었을 때 발생하고 Parent의 state를 갱신합니다.
+    // 비록 버튼이 DOM 상에서 직계 자식이 아니라고 하더라도 말입니다.
+    setClicks(clicks + 1);
+  };
+
   return (
     <>
       <h1>Index 파일</h1>
+      <div onClick={handleTest}>
+        <p>Number of clicks: {clicks}</p>
+        <p>
+          Open up the browser DevTools to observe that the button is not a child
+          of the div with the onClick handler.
+        </p>
+        <Modal>
+          <button>클릭하자</button>
+        </Modal>
+      </div>
+
       <div>
         <BaseButton
           name='primary'
