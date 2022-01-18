@@ -1,38 +1,34 @@
-import React, { ReactNode } from 'react';
-import styled from 'styled-components';
+import React from 'react';
+import { BaseButton } from './Button.styled';
+import * as CSS from 'csstype';
 
-interface BaseButtonProps {
-  disabled: boolean;
+export interface BaseButtonProps {
+  disabled?: boolean;
+  style?: CSS.Properties;
+  size?: string;
   name: string;
-  children: ReactNode;
+  text?: string;
+  handleClick?: () => void;
 }
 
-const ButtonStyled = styled.button`
-  width: 180px;
-  height: 48px;
-  border-radius: 10px;
-  cursor: pointer;
-
-  ${(props) => (() => `background: ${props.theme.colors[`${props.name}`]};`)()}
-
-  &:hover:not(:disabled) {
-    ${(props) =>
-      (() => {
-        return `background: ${props.theme.colors[`dark${props.name}`]};`;
-      })()}
-  }
-
-  &:disabled {
-    opacity: 0.8;
-    cursor: default;
-  }
-`;
-
-const Button = ({ name, disabled, children }: BaseButtonProps) => {
+const Button = ({
+  name,
+  style,
+  size = 'medium',
+  disabled = false,
+  text = '',
+  handleClick,
+}: BaseButtonProps) => {
   return (
-    <ButtonStyled disabled={disabled} name={name}>
-      {children}
-    </ButtonStyled>
+    <BaseButton
+      size={size}
+      disabled={disabled}
+      name={name}
+      style={style}
+      onClick={handleClick}
+    >
+      {text}
+    </BaseButton>
   );
 };
 

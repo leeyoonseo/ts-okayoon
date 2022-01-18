@@ -60,17 +60,15 @@ export const Header = styled.div`
 
 export const Title = styled.strong`
   font-weight: 800;
+  width: 100%;
   font-size: 18px;
-  margin-bottom: 10px;
 `;
 
 export const Body = styled.div`
+  padding: 30px 0;
   text-align: center;
 `;
 
-export const Footer = styled.div``;
-
-export const CancelButton = styled.button`
-  color: ${({ color }) => color};
+export const Footer = styled.div`
+  text-align: right;
 `;
-export const ConfirmButton = styled.button``;
