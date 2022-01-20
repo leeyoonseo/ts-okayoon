@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import { Layout } from 'antd';
+
 import styled from 'styled-components';
 import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
@@ -10,15 +12,23 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
+const Main = styled(Layout.Content)`
+  display: flex;
+  padding: 0 2%;
+  align-items: center;
+  justify-content: center;
+`;
+
 type AppLayoutProps = {
   children: ReactNode;
 };
 
-export default function Layout({ children }: AppLayoutProps) {
+export default function Base({ children }: AppLayoutProps) {
   return (
     <Wrapper>
       <Header />
-      <main>{children}</main>
+
+      <Main>{children}</Main>
 
       <Footer>
         <div>Footer입니다.</div>

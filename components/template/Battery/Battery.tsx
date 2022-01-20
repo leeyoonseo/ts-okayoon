@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import dayjs from 'dayjs';
-import { BatteryOutline, BatteryGauge } from './Battery.styled';
+import * as S from './Battery.styled';
 import { Props } from '../SystemTools/SystemTools';
 
 const getCurrentGauge = (date: Date): number => {
@@ -40,15 +40,15 @@ const Battery = (props: Props) => {
 
   return (
     <div>
-      <BatteryOutline>
+      <S.BatteryOutline>
         {currentGauge && (
-          <BatteryGauge
+          <S.BatteryGauge
             style={{
               width: currentGauge,
             }}
           />
         )}
-      </BatteryOutline>
+      </S.BatteryOutline>
     </div>
   );
 };

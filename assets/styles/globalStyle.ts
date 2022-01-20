@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   
   body {
     background-color: #fff;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, Arial, Helvetica, sans-serif, sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, system-ui, BlinkMacSystemFont, Roboto, Arial, Helvetica, sans-serif, sans-serif;
   }
 
   a {
