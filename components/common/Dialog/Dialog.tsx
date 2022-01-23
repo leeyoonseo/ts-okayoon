@@ -1,5 +1,5 @@
-import React from 'react';
-// import { createPortal } from 'react-dom';
+import React, { useState, ReactNode, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import * as D from './Dialog.styled';
 import BaseButton from '@/components/common/Button/Button';
 export interface IDialog {
@@ -9,6 +9,7 @@ export interface IDialog {
   handleClose: () => void;
   callback?: () => void;
 }
+
 export const TYPE = {
   ALERT: 'alert',
   CONFIRM: 'confirm',
