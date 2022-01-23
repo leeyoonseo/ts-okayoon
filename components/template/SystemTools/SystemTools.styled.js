@@ -3,9 +3,13 @@ import { SoundOutlined, StopOutlined } from '@ant-design/icons';
 
 export const Wrapper = styled.div`
   line-height: 1 !important;
+  display: flex;
+  align-items: center;
+  vertical-align: top;
 
   button {
     line-height: 1 !important;
+    vertical-align: middle;
   }
 `;
 

@@ -5,6 +5,8 @@
     // "outDir": "./dist",
     "paths": {
       "@/components/*": ["components/*"],
+      "@/pages/*": ["pages/*"],
+      "@/assets/*": ["assets/*"],
       "@/store/*": ["store/*"],
       "@/reducer/*": ["reducer/*"],
       "@/constants/*": ["constants/*"],

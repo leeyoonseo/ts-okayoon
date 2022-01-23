@@ -1,6 +1,49 @@
-// src/assets/styles/theme.ts
 import { DefaultTheme } from 'styled-components';
 
+export const dark = {
+  bgColor: 'black',
+  textColor: 'white',
+  boderColor: 'black',
+};
+
+export const light = {
+  bgColor: 'white',
+  textColor: 'black',
+  boderColor: 'white',
+};
+
+export const defaultTheme: DefaultTheme = {
+  light: {
+    common: {
+      text: 'black',
+      black: '#222831',
+      white: '#ffffff',
+    },
+    primary: {
+      main: '#726a95',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      main: '#709fb0',
+      contrastText: '#ffffff',
+    },
+  },
+  dark: {
+    common: {
+      text: 'white',
+      black: '#222831',
+      white: '#ffffff',
+    },
+    primary: {
+      main: '#726a95',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      main: '#709fb0',
+      contrastText: '#ffffff',
+    },
+  },
+};
 // const theme: DefaultTheme = {
 //   basicWidth: '320px',
 

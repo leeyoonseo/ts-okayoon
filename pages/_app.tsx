@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import store from '../store/index';
 import type { NextPage } from 'next';
@@ -10,12 +11,12 @@ import 'dayjs/locale/ko'; // import locale
 
 import { bucketUrl } from '@/constants/index';
 
-import GlobalStyle from '../assets/styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
-import theme from '../assets/styles/theme';
+import { defaultTheme } from '@/assets/styles/theme';
+import GlobalStyle from '@/assets/styles/globalStyle';
 import 'antd/dist/antd.css';
 
-import type { ReactElement, ReactNode } from 'react';
+import Layout from './layouts/base';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -30,7 +31,9 @@ dayjs.extend(isLeapYear);
 dayjs.locale('ko');
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const [theme, setTheme] = useState(defaultTheme);
   const getLayout = Component.getLayout || ((page) => page);
+
   return getLayout(
     <>
       <React.StrictMode>
@@ -65,7 +68,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </ThemeProvider>
         </Provider>
       </React.StrictMode>

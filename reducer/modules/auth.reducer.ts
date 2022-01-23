@@ -11,6 +11,7 @@ export interface User {
 export interface InitialState {
   isUserLoading: boolean | null;
   error: boolean | null;
+  theme: string;
   user: User;
 }
 
@@ -25,6 +26,7 @@ const initialUser = {
 const initialState = {
   isUserLoading: false,
   error: false,
+  theme: 'light',
   user: initialUser,
 } as InitialState;
 
@@ -32,42 +34,51 @@ export const auth = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    // login
-    loginRequest(state, action) {
-      state.isUserLoading = true;
-      state.error = null;
-    },
-    loginSuccess(state, action) {
-      state.isUserLoading = false;
-    },
-    loginFail(state, action) {
-      state.isUserLoading = false;
-      // TODO: 추후에는 문자열로 바꿔서?
-      state.error = true;
+    // // login
+    // loginRequest(state, action) {
+    //   state.isUserLoading = true;
+    //   state.error = null;
+    // },
+    // loginSuccess(state, action) {
+    //   state.isUserLoading = false;
+    // },
+    // loginFail(state, action) {
+    //   state.isUserLoading = false;
+    //   // TODO: 추후에는 문자열로 바꿔서?
+    //   state.error = true;
+    // },
+
+    // // logout
+    // logoutRequest(state) {
+    //   state.isUserLoading = true;
+    //   state.error = null;
+    // },
+    // logoutSuccess(state) {
+    //   state.isUserLoading = false;
+    //   state.user = initialUser;
+    // },
+    // logoutFail(state) {
+    //   state.isUserLoading = false;
+    //   // TODO: 추후에는 문자열로 바꿔서?
+    //   state.error = true;
+    // },
+
+    setTheme(state, action: PayloadAction<InitialState>) {
+      console.log('setTheme', state, action.payload);
+      return { ...state, ...action.payload };
     },
 
-    // logout
-    logoutRequest(state) {
-      state.isUserLoading = true;
-      state.error = null;
-    },
-    logoutSuccess(state) {
-      state.isUserLoading = false;
-      state.user = initialUser;
-    },
-    logoutFail(state) {
-      state.isUserLoading = false;
-      // TODO: 추후에는 문자열로 바꿔서?
-      state.error = true;
-    },
-
-    SetUser(state, action: PayloadAction<InitialState>) {
+    setUser(state, action: PayloadAction<InitialState>) {
       return { ...state.user, ...action.payload };
     },
   },
 });
 
-export const { loginRequest, loginSuccess, loginFail, SetUser } = auth.actions;
+export const {
+  // loginRequest, loginSuccess, loginFail,
+  setUser,
+  setTheme,
+} = auth.actions;
 export default auth.reducer;
 
 // TODO:

@@ -39,7 +39,7 @@ const Battery = (props: Props) => {
   }, [currentGauge]);
 
   return (
-    <div>
+    <S.BatteryWrapper>
       <S.BatteryOutline>
         {currentGauge && (
           <S.BatteryGauge
@@ -49,7 +49,7 @@ const Battery = (props: Props) => {
           />
         )}
       </S.BatteryOutline>
-    </div>
+    </S.BatteryWrapper>
   );
 };
 
