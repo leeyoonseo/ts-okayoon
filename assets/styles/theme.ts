@@ -1,59 +1,30 @@
-import { DefaultTheme } from 'styled-components';
+export interface ITheme {
+  [prop: string]: any; // index
+  primary: string;
+  secondary: string;
+  tertiary: string;
+  textColor: string;
+}
+export interface IThemes {
+  [prop: string]: any; // index
+  dark: ITheme;
+  light: ITheme;
+}
 
-export const dark = {
-  bgColor: 'black',
-  textColor: 'white',
-  boderColor: 'black',
-};
-
-export const light = {
-  bgColor: 'white',
-  textColor: 'black',
-  boderColor: 'white',
-};
-
-export const defaultTheme: DefaultTheme = {
+export const themes: IThemes = {
   light: {
-    common: {
-      text: 'black',
-      black: '#222831',
-      white: '#ffffff',
-    },
-    primary: {
-      main: '#726a95',
-      contrastText: '#ffffff',
-    },
-    secondary: {
-      main: '#709fb0',
-      contrastText: '#ffffff',
-    },
+    primary: '#e0d6fb',
+    secondary: '#8686df',
+    tertiary: '#e7e8fe',
+    textColor: '#333',
   },
   dark: {
-    common: {
-      text: 'white',
-      black: '#222831',
-      white: '#ffffff',
-    },
-    primary: {
-      main: '#726a95',
-      contrastText: '#ffffff',
-    },
-    secondary: {
-      main: '#709fb0',
-      contrastText: '#ffffff',
-    },
+    primary: '#4e5c78',
+    secondary: '#222c41',
+    tertiary: '#b8b8bf',
+    textColor: 'white',
   },
 };
-// const theme: DefaultTheme = {
-//   basicWidth: '320px',
-
-//   color: {
-//     primary: '#64c5ba',
-//     secondary: '#A593E0',
-//     tertiary: '',
-//     gray: '#dedede',
-//   },
-// };
 
 const colors = {
   black: '#566270',
@@ -73,20 +44,7 @@ const colors = {
   chatUser: '#f18d8b',
 };
 
-const theme = {
-  colors: {
-    primary: '#A593E0',
-    darkprimary: '#957be9',
-    secondary: '#ED9282',
-    darksecondary: '#f37b66',
-    tertiary: '#ffe34f',
-    darktertiary: '#f1d12c',
-    gray: '#dedede',
-    darkgray: '#c9c6c6',
-  },
-};
-
-export default theme;
+export default themes;
 
 // TODO:
 // 다크모드, 라이트모드

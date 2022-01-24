@@ -11,7 +11,7 @@ export interface User {
 export interface InitialState {
   isUserLoading: boolean | null;
   error: boolean | null;
-  theme: string;
+  themeMode: string;
   user: User;
 }
 
@@ -26,7 +26,7 @@ const initialUser = {
 const initialState = {
   isUserLoading: false,
   error: false,
-  theme: 'light',
+  themeMode: 'light',
   user: initialUser,
 } as InitialState;
 
@@ -63,8 +63,8 @@ export const auth = createSlice({
     //   state.error = true;
     // },
 
-    setTheme(state, action: PayloadAction<InitialState>) {
-      console.log('setTheme', state, action.payload);
+    setThemeMode(state, action: PayloadAction<InitialState>) {
+      console.log('setThemeMode', state, action.payload);
       return { ...state, ...action.payload };
     },
 
@@ -77,7 +77,7 @@ export const auth = createSlice({
 export const {
   // loginRequest, loginSuccess, loginFail,
   setUser,
-  setTheme,
+  setThemeMode,
 } = auth.actions;
 export default auth.reducer;
 

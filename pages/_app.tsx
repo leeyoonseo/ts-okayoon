@@ -10,9 +10,6 @@ import isLeapYear from 'dayjs/plugin/isLeapYear';
 import 'dayjs/locale/ko'; // import locale
 
 import { bucketUrl } from '@/constants/index';
-
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '@/assets/styles/theme';
 import GlobalStyle from '@/assets/styles/globalStyle';
 import 'antd/dist/antd.css';
 
@@ -31,7 +28,6 @@ dayjs.extend(isLeapYear);
 dayjs.locale('ko');
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const [theme, setTheme] = useState(defaultTheme);
   const getLayout = Component.getLayout || ((page) => page);
 
   return getLayout(
@@ -67,19 +63,11 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         <GlobalStyle />
 
         <Provider store={store}>
-          <ThemeProvider theme={theme}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </ThemeProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </Provider>
       </React.StrictMode>
     </>,
   );
 }
-
-// TODO:
-// propTypes: prop-types
-// _error.js / 404.js
-// store => configurestore
-// withRedux ??

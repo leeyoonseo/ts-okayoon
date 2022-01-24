@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 import { ReducerType } from '@/reducer/index';
-import { InitialState, setTheme } from '@/reducer/modules/auth.reducer';
+import { InitialState, setThemeMode } from '@/reducer/modules/auth.reducer';
 
 const ThemeButton = styled.button`
   width: 18px;
@@ -19,20 +19,22 @@ const ThemeButton = styled.button`
 `;
 
 const Header = () => {
-  const theme = useSelector<ReducerType, string>(({ auth }) => auth.theme);
+  const themeMode = useSelector<ReducerType, string>(
+    ({ auth }) => auth.themeMode,
+  );
   const dispatch = useDispatch();
 
   const handleTheme = () => {
     const state = {
-      theme: theme === 'light' ? 'dark' : 'light',
+      themeMode: themeMode === 'light' ? 'dark' : 'light',
     } as InitialState;
-    dispatch(setTheme(state));
+    dispatch(setThemeMode(state));
   };
 
   return (
     <>
       <ThemeButton onClick={handleTheme}>
-        <Image src={`/icon-theme-${theme}.png`} layout='fill' />
+        <Image src={`/icon-theme-${themeMode}.png`} layout='fill' />
       </ThemeButton>
     </>
   );

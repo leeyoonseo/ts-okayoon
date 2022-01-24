@@ -3,7 +3,7 @@ import { all, fork, takeLatest, takeEvery } from 'redux-saga/effects';
 
 import {
   InitialState,
-  setTheme,
+  setThemeMode,
   setUser,
 } from '@/reducer/modules/auth.reducer';
 
@@ -17,7 +17,7 @@ function* watchSetUser(action: PayloadAction<InitialState>) {
   }
 }
 
-function* watchSetTheme(action: PayloadAction<InitialState>) {
+function* watchSetThemeMode(action: PayloadAction<InitialState>) {
   try {
     yield console.log(action.payload);
   } catch (err) {
@@ -28,7 +28,7 @@ function* watchSetTheme(action: PayloadAction<InitialState>) {
 export function* authSaga() {
   yield all([
     takeEvery(setUser.type, watchSetUser),
-    takeLatest(setTheme.type, watchSetTheme),
+    takeLatest(setThemeMode.type, watchSetThemeMode),
   ]);
   // yield takeEvery(setUser.type, watchSetUser);
 }

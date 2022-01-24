@@ -5,7 +5,7 @@ export const Header = styled(Layout.Header)`
   padding: 0;
   height: auto;
   color: white;
-  background: none;
+  background: ${({ theme }) => theme.secondary};
 `;
 
 export const HeaderInner = styled.div`
