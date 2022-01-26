@@ -17,3 +17,15 @@ export const HeaderInner = styled.div`
   align-items: center;
   justify-content: flex-end;
 `;
+
+export const Logo = styled.span`
+  display: inline-block;
+  margin-right: auto;
+  line-height: 1;
+
+  a {
+    &:hover {
+      color: white;
+    }
+  }
+`;
