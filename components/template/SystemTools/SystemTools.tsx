@@ -12,7 +12,7 @@ export interface Props {
 const SystemTools = () => {
   const [isSoundActivated, setIsSoundActivated] = useState(true);
   const [time, setTime] = useState(new Date());
-  const handleSound = () => {
+  const handleSoundToggle = () => {
     setIsSoundActivated(!isSoundActivated);
   };
 
@@ -21,9 +21,9 @@ const SystemTools = () => {
       {/* TODO: 로그인, 로그아웃 넣고 삭제 */}
       <S.Box>
         {isSoundActivated ? (
-          <S.SoundIcon onClick={handleSound} />
+          <S.SoundIcon onClick={handleSoundToggle} />
         ) : (
-          <S.StopIcon onClick={handleSound} />
+          <S.SoundIconActivated onClick={handleSoundToggle} />
         )}
       </S.Box>
       <S.Box>

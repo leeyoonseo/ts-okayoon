@@ -4,6 +4,7 @@ export interface ITheme {
   secondary: string;
   tertiary: string;
   textColor: string;
+  gray?: string;
 }
 export interface IThemes {
   [prop: string]: any; // index
@@ -13,9 +14,10 @@ export interface IThemes {
 
 export const themes: IThemes = {
   light: {
-    primary: '#e0d6fb',
-    secondary: '#8686df',
+    primary: '#64c5ba',
+    secondary: '#1d4b45',
     tertiary: '#e7e8fe',
+    gray: '#fefefe',
     textColor: '#333',
   },
   dark: {

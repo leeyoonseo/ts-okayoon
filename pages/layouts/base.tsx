@@ -39,9 +39,7 @@ export default function Base({ children }: AppLayoutProps) {
 
         <Main>{children}</Main>
 
-        <Footer>
-          <div>Footer입니다.</div>
-        </Footer>
+        <Footer>Copyright 2022. Web Front-end developer portfolio</Footer>
       </Wrapper>
     </ThemeProvider>
   );

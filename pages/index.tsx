@@ -3,12 +3,6 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import Apps from '@/components/template/Apps/Apps';
 
-const ThemeTest = styled.div`
-  color: ${({ theme }) => {
-    return theme.textColor;
-  }};
-`;
-
 export default function Index() {
   return (
     <>
@@ -17,8 +11,6 @@ export default function Index() {
       </Head>
 
       <Apps />
-
-      <ThemeTest>테마 테스트</ThemeTest>
     </>
   );
 }

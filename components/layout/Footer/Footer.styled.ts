@@ -4,11 +4,12 @@ import { Layout } from 'antd';
 export const Footer = styled(Layout.Footer)`
   margin-top: auto;
   padding: 0;
-  font-size: 16px;
-  line-height: 1;
+  font-size: 12px;
+  font-weight: 300;
   color: white;
   background: black;
   box-sizing: border-box;
+  background: ${({ theme }) => theme.primary};
 `;
 
 export const FooterInner = styled.div`

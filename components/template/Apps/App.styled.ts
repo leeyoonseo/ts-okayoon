@@ -41,5 +41,5 @@ export const IconWrap = styled.span`
 export const Name = styled.span`
   margin-top: 5px;
   display: inline-block;
-  line-height: 1.25;
+  color: ${({ theme }) => theme.textColor};
 `;
