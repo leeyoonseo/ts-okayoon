@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar as AntdAvatar, Image } from 'antd';
+import { Image } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import styled from 'styled-components';
-
+import * as S from './Avatar.styled';
 interface IProps {
   src?: string;
   nickname?: string;
@@ -14,22 +13,6 @@ const Sizes = {
   MEDIUM: 'medium',
   SMALL: 'small',
 };
-
-const TheAvatar = styled(AntdAvatar)`
-  box-shadow: 0 1px 18px rgba(0, 0, 0, 0.2);
-  background: ${({ theme }) => theme.tertiary};
-
-  .ant-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`;
-
-const DefaultAvatar = styled(AntdAvatar)`
-  box-shadow: 0 1px 18px rgba(0, 0, 0, 0.2);
-  background: ${({ theme }) => theme.tertiary};
-`;
 
 const Avatar = ({ src, nickname, size }: IProps) => {
   const [width, setWidth] = useState(NaN);
@@ -58,7 +41,7 @@ const Avatar = ({ src, nickname, size }: IProps) => {
   return (
     <>
       {(src || nickname) && width ? (
-        <TheAvatar
+        <S.TheAvatar
           size={width}
           src={
             <Image
@@ -72,9 +55,9 @@ const Avatar = ({ src, nickname, size }: IProps) => {
           }
         >
           {nickname && nickname}
-        </TheAvatar>
+        </S.TheAvatar>
       ) : (
-        <DefaultAvatar size={width} icon={<UserOutlined />} />
+        <S.DefaultAvatar size={width} icon={<UserOutlined />} />
       )}
     </>
   );
@@ -83,15 +66,5 @@ const Avatar = ({ src, nickname, size }: IProps) => {
 export default Avatar;
 
 // * Example
-// ReactDOM.render(
-//   <>
-//     <Avatar icon={<UserOutlined />} />
-//     <Avatar>U</Avatar>
-//     <Avatar size={40}>USER</Avatar>
-//     <Avatar src="https://joeschmoe.io/api/v1/random" />
-//     <Avatar src={<Image src="https://joeschmoe.io/api/v1/random" style={{ width: 32 }} />} />
-//     <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>U</Avatar>
-//     <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
-//   </>,
-//   mountNode,
-// );
+// https://ant.design/components/avatar/
+// <Avatar size='large' src={avatars[0].path} />
