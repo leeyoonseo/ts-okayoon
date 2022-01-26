@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import styled from 'styled-components';
 import Apps from '@/components/template/Apps/Apps';
+import Section from '@/components/layout/Section/Section';
 
 export default function Index() {
   return (
@@ -10,7 +10,9 @@ export default function Index() {
         <title>OKAYOON | HOME</title>
       </Head>
 
-      <Apps />
+      <Section>
+        <Apps />
+      </Section>
     </>
   );
 }
