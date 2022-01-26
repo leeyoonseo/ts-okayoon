@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import { ReducerType } from '@/reducer/index';
 import { Layout } from 'antd';
 
@@ -28,18 +29,19 @@ type AppLayoutProps = {
 };
 
 export default function Base({ children }: AppLayoutProps) {
+  const router = useRouter();
   const themeMode = useSelector<ReducerType, string>(
     ({ auth }) => auth.themeMode,
   );
-
   return (
     <ThemeProvider theme={themes[themeMode]}>
       <Wrapper>
         <Header />
-
         <Main>{children}</Main>
 
-        <Footer>Copyright 2022. Web Front-end developer portfolio</Footer>
+        {router.pathname === '/' && (
+          <Footer>Copyright 2022. Web Front-end developer portfolio</Footer>
+        )}
       </Wrapper>
     </ThemeProvider>
   );
