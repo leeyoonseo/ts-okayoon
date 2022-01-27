@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Image } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import * as S from './Avatar.styled';
+import styled from 'styled-components';
+import { Avatar as antdAvatar } from 'antd';
+
+const TheAvatar = styled(antdAvatar)`
+  .ant-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
 interface IProps {
   src?: string;
   nickname?: string;
@@ -41,7 +51,7 @@ const Avatar = ({ src, nickname, size }: IProps) => {
   return (
     <>
       {(src || nickname) && width ? (
-        <S.TheAvatar
+        <TheAvatar
           size={width}
           src={
             <Image
@@ -55,9 +65,9 @@ const Avatar = ({ src, nickname, size }: IProps) => {
           }
         >
           {nickname && nickname}
-        </S.TheAvatar>
+        </TheAvatar>
       ) : (
-        <S.DefaultAvatar size={width} icon={<UserOutlined />} />
+        <TheAvatar size={width} icon={<UserOutlined />} />
       )}
     </>
   );
