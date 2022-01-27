@@ -7,12 +7,13 @@ const Header = () => {
   return (
     <>
       <S.Header>
-        <S.HeaderInner>
+        <div className='header-inner'>
           <S.Logo>
             <Link href='/'>OKAYOON</Link>
           </S.Logo>
+
           <SystemTools />
-        </S.HeaderInner>
+        </div>
       </S.Header>
     </>
   );

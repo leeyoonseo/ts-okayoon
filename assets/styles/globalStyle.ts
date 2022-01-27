@@ -32,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, system-ui, BlinkMacSystemFont, Roboto, Arial, Helvetica, sans-serif, sans-serif;
   }
 
   ol,

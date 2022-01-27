@@ -1,13 +1,8 @@
 export interface ITheme {
-  [prop: string]: any; // index
-  primary: string;
-  secondary: string;
-  tertiary: string;
-  textColor: string;
-  gray?: string;
+  [prop: string]: any;
 }
 export interface IThemes {
-  [prop: string]: any; // index
+  [prop: string]: any;
   dark: ITheme;
   light: ITheme;
 }
@@ -16,15 +11,30 @@ export const themes: IThemes = {
   light: {
     primary: '#64c5ba',
     secondary: '#1d4b45',
+    secondaryDark: '#082420',
     tertiary: '#e7e8fe',
-    gray: '#fefefe',
-    textColor: '#333',
+    gray: '##f7f7f7',
+    grayDark: '#e1dfdf',
+    dangerBgColor: '#ffe4e4',
+    dangerBgColorDark: '#ffc5c5',
+    dangerBorderColor: '#ebccd1',
+    dangerColor: '#c92522',
+    default: '#333',
+    reverse: 'white',
   },
   dark: {
     primary: '#4e5c78',
     secondary: '#222c41',
+    secondaryDark: '#161d2c',
     tertiary: '#b8b8bf',
-    textColor: 'white',
+    gray: '##f7f7f7',
+    grayDark: '#e1dfdf',
+    dangerBgColor: '#ffe4e4',
+    dangerBgColorDark: '#ffc5c5',
+    dangerBorderColor: '#ebccd1',
+    dangerColor: '#c92522',
+    default: 'white',
+    reverse: '#333',
   },
 };
 

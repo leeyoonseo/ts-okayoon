@@ -18,9 +18,14 @@ const Wrapper = styled.div`
 `;
 
 const Main = styled(Layout.Content)`
+  position: relative;
+  top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  height: calc(100% - 30px);
+  flex: none;
 `;
 
 type AppLayoutProps = {
