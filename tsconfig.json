@@ -10,6 +10,7 @@
       "@/store/*": ["store/*"],
       "@/reducer/*": ["reducer/*"],
       "@/constants/*": ["constants/*"],
+      "@/hooks/*": ["hooks/*"],
     },
     "target": "es5", 
     "lib": [ 
