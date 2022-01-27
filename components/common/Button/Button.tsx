@@ -1,34 +1,49 @@
-import React from 'react';
-import { BaseButton } from './Button.styled';
-import * as CSS from 'csstype';
-
+import React, { useEffect, useState } from 'react';
+import * as S from './Button.styled';
 export interface BaseButtonProps {
-  disabled?: boolean;
-  style?: CSS.Properties;
-  size?: string;
-  name: string;
+  type: string;
   text?: string;
-  handleClick?: () => void;
+  disabled?: boolean;
+  onClick?: () => void;
 }
 
+const Sizes = ['micro', 'small', 'medium', 'large'];
+const Types = ['default', 'danger', 'confirm'];
+
 const Button = ({
-  name,
-  style,
-  size = 'medium',
+  type = 'confirm-small',
+  text = '확인',
   disabled = false,
-  text = '',
-  handleClick,
+  onClick,
 }: BaseButtonProps) => {
+  const [className, setClassName] = useState('');
+  const [isValidatePass, setIsValidatePass] = useState(true);
+
+  useEffect(() => {
+    const split = type.split('-');
+    const isTypePass = Types.includes(split[0]);
+    const isSizePass = Sizes.includes(split[1]);
+
+    setClassName(type.replace('-', ' '));
+    setIsValidatePass(isTypePass && isSizePass);
+
+    if (!isTypePass || !isSizePass) {
+      throw new Error('Please check the type prop');
+    }
+  }, []);
+
   return (
-    <BaseButton
-      size={size}
-      disabled={disabled}
-      name={name}
-      style={style}
-      onClick={handleClick}
-    >
-      {text}
-    </BaseButton>
+    <>
+      {isValidatePass && (
+        <S.BaseButton
+          className={className}
+          disabled={disabled}
+          onClick={onClick}
+        >
+          {text}
+        </S.BaseButton>
+      )}
+    </>
   );
 };
 

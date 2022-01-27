@@ -1,38 +1,54 @@
-import { BaseButtonProps } from './Button';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const SIZE = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-};
+export const CommonStyled = css`
+  cursor: pointer;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 8px;
+  box-sizing: border-box;
+
+  & + button {
+    margin-left: 4px;
+  }
+`;
 
 export const BaseButton = styled.button`
-  width: ${({ size }: BaseButtonProps) => {
-    switch (size) {
-      case SIZE.SMALL:
-        return '80px';
-      case SIZE.LARGE:
-        return '150px';
-      default:
-        return '120px';
-    }
-  }};
-  height: 40px;
-  border-radius: 10px;
-  cursor: pointer;
+  ${CommonStyled}
 
-  ${(props) => (() => `background: ${props.theme.colors[`${props.name}`]};`)()}
-
-  &:hover:not(:disabled) {
-    ${(props) =>
-      (() => {
-        return `background: ${props.theme.colors[`dark${props.name}`]};`;
-      })()}
+  &.default {
+    background: ${({ theme }) => theme.reverse};
+    color: ${({ theme }) => theme.default};
   }
 
-  &:disabled {
-    opacity: 0.8;
-    cursor: default;
+  &.confirm {
+    background: ${({ theme }) => theme.secondary};
+    color: white;
+    border: none;
+  }
+
+  &.danger {
+    background: ${({ theme }) => theme.dangerBgColor};
+    border-color: ${({ theme }) => theme.dangerBorderColor};
+    color: ${({ theme }) => theme.dangerColor};
+  }
+
+  &.large {
+    width: 150px;
+    height: 45px;
+  }
+
+  &.medium {
+    width: 100px;
+    height: 40px;
+  }
+
+  &.small {
+    width: 60px;
+    height: 30px;
+  }
+
+  &.micro {
+    width: 40px;
+    height: 30px;
   }
 `;
