@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const Wrap = styled.div`
-  display: inline-block;
   max-width: 600px;
   width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
 `;
 
 export const AppButton = styled.button`
@@ -41,5 +43,5 @@ export const IconWrap = styled.span`
 export const Name = styled.span`
   margin-top: 5px;
   display: inline-block;
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }) => theme.default};
 `;
