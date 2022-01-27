@@ -1,96 +1,121 @@
 import React from 'react';
-import * as S from './GuestCard.styled';
-import Avatar from '@/components/Common/Avatar/Avatar';
-import { avatars } from '@/constants/index';
+import TheAvatar from '@/components/common/Avatar/Avatar';
+import BaseButton from '@/components/common/Button/Button';
 
-//
+interface IGuestbook {
+  guestbookId: number;
+  guestbookDt: string; // TODO: 추후에는 Date객체
+  userId: string;
+  userNickname: string;
+  message: string;
+}
+interface IProps {
+  content: IGuestbook;
+}
+
+// Styled
 import styled from 'styled-components';
 
 const GuestCardWrap = styled.div`
   width: 100%;
-  background: white;
+  background: ${({ theme }) => theme.reverse};
   border-radius: 15px;
   padding: 16px;
   box-shadow: 0 1px 18px rgba(0, 0, 0, 0.2);
+  color: ${({ theme }) => theme.default};
+
+  .guestcard-inner {
+    display: flex;
+  }
+
+  .guestcard-avatar {
+    width: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
-const GuestCardInfoWrap = styled.div`
-  display: flex;
-`;
+const GuestCardContents = styled.div`
+  width: calc(100% - 165px);
+  padding: 0 16px;
 
-const AvatarWrap = styled.div`
-  width: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const GuestCardInfo = styled.div`
-  width: calc(100% - 100px);
-`;
+  .info {
+    margin-bottom: 3px;
 
-const Nickname = styled.span`
-  display: block;
-  width: 100%;
-  margin-bottom: 3px;
-`;
+    & > span {
+      display: inline-block;
+    }
 
-const Date = styled.span`
-  display: block;
-  width: 100%;
-  margin-bottom: 8px;
-  font-size: 13px;
-`;
+    &-nickname {
+    }
 
-const Message = styled.div`
-  display: block;
-  width: 100%;
+    &-date {
+      margin-left: 8px;
+      font-size: 12px;
+      color: #666;
+    }
+  }
+
+  .message {
+    display: block;
+    width: 100%;
+  }
 `;
 
 const GuestCardButtonsWrap = styled.div`
-  display: flex;
+  width: 85px;
+
   justify-content: end;
+
+  & > div {
+    display: inline-block;
+  }
 `;
 
-const GuestCardButtons = styled.div`
-  display: inline-block;
-`;
+const GuestCard = ({ content }: IProps) => {
+  const handleEdit = () => {
+    console.log('Edit');
+  };
 
-const EditButton = styled.button`
-  cursor: pointer;
-`;
-const RemoveButton = styled.button`
-  cursor: pointer;
-`;
-//
-
-const GuestCard = () => {
+  const handleRemove = () => {
+    console.log('Remove');
+  };
   return (
     <>
       <GuestCardWrap>
-        <div>
-          <GuestCardInfoWrap>
-            <AvatarWrap>
-              <Avatar size='large' />
-            </AvatarWrap>
+        <div className='guestcard-inner'>
+          <div className='guestcard-avatar'>
+            <TheAvatar size='large' />
+          </div>
 
-            <GuestCardInfo>
-              <Nickname>닉네임</Nickname>
-              <Date>2022.01.26 pm 10:22</Date>
-              <Message>
-                안녕하세요.
-                <br />
-                오늘은 날씨가 좋았어요.
-                <br />
-                아직은 겨울이지만 곧 봄이 오겠죠?
-              </Message>
-            </GuestCardInfo>
-          </GuestCardInfoWrap>
+          <GuestCardContents>
+            <div className='info'>
+              <span className='info-nickname'>{content.userNickname}</span>
+              <span className='info-date'>{content.guestbookDt}</span>
+            </div>
 
+            <div
+              className='message'
+              dangerouslySetInnerHTML={{ __html: content.message }}
+            ></div>
+          </GuestCardContents>
+
+          {/* TODO: 이건 작성자거나 관리자만 확인할 수 있도록. */}
           <GuestCardButtonsWrap>
-            <GuestCardButtons>
-              <EditButton>수정</EditButton>
-              <RemoveButton>삭제</RemoveButton>
-            </GuestCardButtons>
+            <div>
+              <BaseButton
+                type='default-micro'
+                text='수정'
+                onClick={handleEdit}
+              />
+              <BaseButton
+                type='danger-micro'
+                text='삭제'
+                onClick={handleRemove}
+              />
+            </div>
           </GuestCardButtonsWrap>
         </div>
       </GuestCardWrap>
