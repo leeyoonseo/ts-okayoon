@@ -110,7 +110,8 @@ const Guestbook = () => {
 
   const handleBlur = useCallback(() => {
     if (message.length > MAX_TEXTAREA_LENGTH) {
-      setMessage(message.substr(0, MAX_TEXTAREA_LENGTH));
+      const maxLengthMessage = message.substr(0, MAX_TEXTAREA_LENGTH);
+      setMessage(maxLengthMessage);
     }
   }, [message]);
 
