@@ -25,8 +25,8 @@ const Sizes = {
 };
 
 const Avatar = ({ src, nickname, size }: IProps) => {
-  const [width, setWidth] = useState(NaN);
-  const [height, setHeight] = useState(NaN);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
 
   useEffect(() => {
     let avatarSize = 36;

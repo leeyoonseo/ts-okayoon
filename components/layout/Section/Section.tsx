@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 interface IProps {
-  title: string;
+  title?: string;
   children: ReactNode;
 }
 const SectionWrap = styled.div`
@@ -28,3 +28,7 @@ const Section = ({ title, children }: IProps) => {
 };
 
 export default Section;
+
+// TODO: 반응형 작업
+// 게스트 카드 1140px 이상일때 4개 이하 3개.. 이런식으로
+// 레이아웃 최대, 최소 지정
