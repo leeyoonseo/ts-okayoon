@@ -3,12 +3,11 @@ export interface ITheme {
 }
 export interface IThemes {
   [prop: string]: any;
-  dark: ITheme;
-  light: ITheme;
 }
 
 export const themes: IThemes = {
   light: {
+    name: 'light',
     primary: '#64c5ba',
     secondary: '#1d4b45',
     secondaryDark: '#082420',
@@ -23,6 +22,7 @@ export const themes: IThemes = {
     reverse: 'white',
   },
   dark: {
+    name: 'dark',
     primary: '#4e5c78',
     secondary: '#222c41',
     secondaryDark: '#161d2c',

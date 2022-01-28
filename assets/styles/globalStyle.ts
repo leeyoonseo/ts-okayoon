@@ -45,6 +45,15 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
   }
+
+  .hidden {
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: -9999px;
+    width: 0;
+  }
 `;
 
 export default GlobalStyle;

@@ -53,3 +53,9 @@ export const dummyGuestbookData = [
     `,
   },
 ];
+
+export const dummyUser = {
+  userId: 'okayoon',
+  userImage: '',
+  userNickname: '도토리',
+};
