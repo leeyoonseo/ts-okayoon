@@ -9,12 +9,8 @@ const getCurrentGauge = (date: Date): number => {
   const oneHundredPercent = 100;
   const DaysToMinutes = 1440;
   const currentMinutes = time.format('HH') * 60 + Number(time.format('mm'));
-
-  // * 100% - (100% / 하루 총 분 / 현재 분)
-  return (
-    oneHundredPercent -
-    Math.floor(oneHundredPercent / (DaysToMinutes / currentMinutes))
-  );
+  // * (100% / 하루 총 분 / 현재 분)
+  return Math.floor(oneHundredPercent / (DaysToMinutes / currentMinutes));
 };
 
 const Battery = (props: Props) => {
@@ -27,6 +23,7 @@ const Battery = (props: Props) => {
     let timerInterval = setInterval(() => {
       time = new Date();
       per = getCurrentGauge(time);
+      console.log('currentGauge', currentGauge);
 
       if (per === currentGauge) return;
 
@@ -36,7 +33,7 @@ const Battery = (props: Props) => {
     return () => {
       clearInterval(timerInterval);
     };
-  }, []);
+  }, [currentGauge]);
 
   return (
     <S.BatteryWrapper>
