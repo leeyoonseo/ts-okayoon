@@ -1,30 +1,38 @@
 import styled from 'styled-components';
 
-export const Wrap = styled.div`
+export const Apps = styled.ul`
+  padding: 0;
   max-width: 600px;
   width: 100%;
   height: 100%;
   margin: 0 auto;
   display: flex;
-`;
+  justify-content: center;
+  align-items: center;
 
-export const AppButton = styled.button`
-  padding: 0;
-  max-width: 15%;
-  width: 100%;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  background: none;
-  cursor: pointer;
-  transition: all 0.5s;
+  .app-items {
+    width: 15%;
 
-  &:hover {
-    transform: translateY(-10px);
+    & + .app-items {
+      margin-left: 2%;
+    }
   }
 
-  & + button {
-    margin-left: 2%;
+  .app-button {
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+  }
+
+  .app-name {
+    font-size: 16px;
+    margin-top: 5px;
+    display: inline-block;
+    color: ${({ theme }) => theme.default};
   }
 `;
 
@@ -38,10 +46,4 @@ export const IconWrap = styled.span`
     width: 100%;
     height: 100%;
   }
-`;
-
-export const Name = styled.span`
-  margin-top: 5px;
-  display: inline-block;
-  color: ${({ theme }) => theme.default};
 `;

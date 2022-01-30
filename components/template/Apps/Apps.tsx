@@ -56,16 +56,21 @@ const Apps = () => {
   };
 
   return (
-    <S.Wrap>
+    <S.Apps>
       {apps.map((app: IApps) => (
-        <S.AppButton key={app.name} onClick={() => handleApp(app.routePath)}>
-          <S.IconWrap>
-            <Image src={app.iconSrc} layout='fill' alt={app.name} />
-          </S.IconWrap>
-          <S.Name>{app.name}</S.Name>
-        </S.AppButton>
+        <li className='app-items' key={app.name}>
+          <button
+            className='app-button'
+            onClick={() => handleApp(app.routePath)}
+          >
+            <S.IconWrap>
+              <Image src={app.iconSrc} layout='fill' alt={app.name} />
+            </S.IconWrap>
+            <span className='app-name'>{app.name}</span>
+          </button>
+        </li>
       ))}
-    </S.Wrap>
+    </S.Apps>
   );
 };
 

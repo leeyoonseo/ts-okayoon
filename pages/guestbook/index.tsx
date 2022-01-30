@@ -86,29 +86,27 @@ const Guestbook = () => {
         </GuestbookWrap>
 
         <GuestbookInputWrap>
-          <form>
-            <div className='textarea-wrap'>
-              <textarea
-                ref={textareaRef}
-                placeholder='방명록을 입력해주세요.'
-                onChange={onChangeMessage}
-                onBlur={handleBlur}
-                value={message}
-                maxLength={MAX_TEXTAREA_LENGTH}
-                required
-              />
-              <span className='length'>{`${message.length}/${MAX_TEXTAREA_LENGTH}`}</span>
-            </div>
+          <div className='textarea-wrap'>
+            <textarea
+              ref={textareaRef}
+              placeholder='방명록을 입력해주세요.'
+              onChange={onChangeMessage}
+              onBlur={handleBlur}
+              value={message}
+              maxLength={MAX_TEXTAREA_LENGTH}
+              required
+            />
+            <span className='length'>{`${message.length}/${MAX_TEXTAREA_LENGTH}`}</span>
+          </div>
 
-            <button
-              type='button'
-              className='submit-button'
-              onClick={handleSubmit}
-              disabled={!isActivatedSubmit}
-            >
-              등록
-            </button>
-          </form>
+          <button
+            type='button'
+            className='submit-button'
+            onClick={handleSubmit}
+            disabled={!isActivatedSubmit}
+          >
+            등록
+          </button>
         </GuestbookInputWrap>
       </Section>
     </>

@@ -23,7 +23,7 @@ const Clock = (props: Props) => {
     return () => {
       clearInterval(timerInterval);
     };
-  }, [currentTime]);
+  }, []);
 
   return (
     <div

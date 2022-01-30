@@ -9,7 +9,7 @@ const Footer = ({ children }: AppLayoutProps) => {
   return (
     <>
       <S.Footer>
-        <S.FooterInner>{children}</S.FooterInner>
+        <div className='footer-inner'>{children}</div>
       </S.Footer>
     </>
   );

@@ -36,7 +36,7 @@ const Battery = (props: Props) => {
     return () => {
       clearInterval(timerInterval);
     };
-  }, [currentGauge]);
+  }, []);
 
   return (
     <S.BatteryWrapper>
@@ -44,7 +44,7 @@ const Battery = (props: Props) => {
         {currentGauge && (
           <S.BatteryGauge
             style={{
-              width: currentGauge,
+              width: `${currentGauge}%`,
             }}
           />
         )}

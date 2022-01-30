@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const GuestbookWrap = styled.div`
-  height: 80%;
+  height: 70%;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 20px 0;
@@ -35,17 +35,17 @@ export const GuestbookWrap = styled.div`
 `;
 
 export const GuestbookInputWrap = styled.div`
-  form {
-    padding: 16px 0;
-  }
+  height: 30%;
+  margin-top: 16px;
 
   .textarea-wrap {
     position: relative;
+    height: 70%;
   }
 
   textarea {
     width: 100%;
-    height: 100px;
+    height: 100%;
     padding: 16px 16px 30px 16px;
     border-radius: 15px;
     border: none;
@@ -86,9 +86,9 @@ export const GuestbookInputWrap = styled.div`
   }
 
   .submit-button {
-    margin-top: 4px;
+    height: calc(30% - 20px);
+    margin: 10px 0;
     width: 100%;
-    height: 40px;
     color: white;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
