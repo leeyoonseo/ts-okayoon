@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const GuestCardWrap = styled.div`
   width: 100%;
+  height: 255px;
+  cursor: pointer;
   background: ${({ theme }) => theme.reverse};
   border-radius: 15px;
   padding: 16px;
@@ -25,6 +27,15 @@ export const GuestCardWrap = styled.div`
     background-size: contain;
   }
 
+  .guestcard-inner {
+    height: 220px;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+  }
+
   .guestcard-avatar {
     width: 80px;
     margin: 0 auto 4px;
@@ -38,6 +49,7 @@ export const GuestCardContents = styled.div`
   width: 100%;
 
   .info {
+    text-align: center;
     margin-bottom: 4px;
 
     & > span {
@@ -45,7 +57,7 @@ export const GuestCardContents = styled.div`
     }
 
     &-nickname {
-      text-align: center;
+      font-weight: 700;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -60,69 +72,5 @@ export const GuestCardContents = styled.div`
   .message {
     display: block;
     width: 100%;
-  }
-`;
-
-export const GuestCardButtonsWrap = styled.div`
-  display: inline-block;
-  position: absolute;
-  top: 6px;
-  right: 16px;
-  line-height: 1px;
-
-  button {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    padding: 0;
-    display: inline-block;
-  }
-
-  button + button {
-    margin-left: 4px;
-  }
-
-  .menu-trigger {
-    background-image: ${({ theme }) =>
-      `url('./icon-three-dots-${theme.name}.png')`};
-  }
-
-  .menu-wrapper:hover {
-    .menu {
-      display: flex;
-    }
-  }
-
-  /* TODO: 삭제, 수정 디테일 페이지 만들기 [_id] */
-  .menu {
-    background: ${({ theme }) => theme.reverse};
-    border: 1px solid ${({ theme }) => theme.default};
-    position: absolute;
-    top: 18px;
-    left: -35px;
-    z-index: 50;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    border-radius: 6px;
-    text-align: center;
-
-    button + button {
-      margin-left: 6px;
-    }
-
-    .edit-button {
-      background-image: ${({ theme }) =>
-        `url('./icon-edit-${theme.name}.png')`};
-    }
-
-    .delete-button {
-      background-image: ${({ theme }) =>
-        `url('./icon-delete-${theme.name}.png')`};
-    }
   }
 `;

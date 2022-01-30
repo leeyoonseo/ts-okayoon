@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IThemes } from '@/assets/styles/theme';
 
 export const GuestbookWrap = styled.div`
   height: 70%;
@@ -19,16 +20,28 @@ export const GuestbookWrap = styled.div`
     .guextbook-items {
       width: calc(25% - 12px);
 
-      & + .guextbook-items {
-        margin-left: 16px;
-      }
-
       &:nth-child(4n + 1) {
         margin-left: 0;
       }
 
       &:nth-child(1n + 5) {
         margin-top: 16px;
+      }
+
+      & + .guextbook-items {
+        margin-left: 16px;
+      }
+
+      @media ${({ theme }: IThemes) => theme.device.mobile} {
+        width: calc(50% - 12px);
+
+        &:nth-child(2n + 1) {
+          margin-left: 0;
+        }
+
+        &:nth-child(1n + 3) {
+          margin-top: 16px;
+        }
       }
     }
   }

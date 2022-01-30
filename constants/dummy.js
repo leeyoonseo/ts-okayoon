@@ -1,7 +1,9 @@
+import { IGuestbook } from '@/components/template/GuestCard/GuestCard';
+
 // TODO: Dt Date 객체로 처리
 export const dummyGuestbookData = [
   {
-    guestbookId: 0,
+    guestbookId: '0',
     guestbookDt: '2022.01.26 pm 10:22',
     userId: 'okayoon',
     userNickname: '졸려라',
@@ -12,7 +14,7 @@ export const dummyGuestbookData = [
     `,
   },
   {
-    guestbookId: 1,
+    guestbookId: '1',
     guestbookDt: '2022.01.26 pm 10:22',
     userId: 'cakeeee00',
     userNickname: '케이크',
@@ -21,14 +23,14 @@ export const dummyGuestbookData = [
     `,
   },
   {
-    guestbookId: 2,
+    guestbookId: '2',
     guestbookDt: '2022.01.26 pm 10:22',
     userId: 'JAM',
     userNickname: 'JAMJAM',
     message: `알로하~`,
   },
   {
-    guestbookId: 3,
+    guestbookId: '3',
     guestbookDt: '2022.01.26 pm 10:22',
     userId: '030',
     userNickname: '030',
@@ -38,7 +40,7 @@ export const dummyGuestbookData = [
     `,
   },
   {
-    guestbookId: 4,
+    guestbookId: '4',
     guestbookDt: '2022.01.26 pm 10:22',
     userId: 'banana',
     userNickname: 'Banana&바나나&빠나나=원숭이',

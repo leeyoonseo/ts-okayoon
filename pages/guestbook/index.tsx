@@ -7,20 +7,15 @@ import Head from 'next/head';
 
 import useInput from '@/hooks/useInput';
 import Section from '@/components/layout/Section/Section';
-import GuestCard from '@/components/template/GuestCard/GuestCard';
+import GuestCard, {
+  IGuestbook,
+} from '@/components/template/GuestCard/GuestCard';
 import { GuestbookWrap, GuestbookInputWrap } from './index.styled';
 
 // Dummy
 import { dummyGuestbookData, dummyUser } from '@/constants/dummy';
 
 const MAX_TEXTAREA_LENGTH = 100;
-interface IGuestbook {
-  guestbookId: number;
-  guestbookDt: string;
-  userId: string;
-  userNickname: string;
-  message: string;
-}
 
 const Guestbook = () => {
   const textareaRef = useRef(null);

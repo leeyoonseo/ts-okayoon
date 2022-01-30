@@ -5,6 +5,11 @@ export interface IThemes {
   [prop: string]: any;
 }
 
+const device = {
+  mobile: 'screen and (max-width: 768px)',
+  tablet: 'screen and (max-width: 1140px)',
+};
+
 export const themes: IThemes = {
   light: {
     name: 'light',
@@ -20,6 +25,7 @@ export const themes: IThemes = {
     dangerColor: '#c92522',
     default: '#333',
     reverse: 'white',
+    device,
   },
   dark: {
     name: 'dark',
@@ -35,6 +41,7 @@ export const themes: IThemes = {
     dangerColor: '#c92522',
     default: 'white',
     reverse: '#333',
+    device,
   },
 };
 
