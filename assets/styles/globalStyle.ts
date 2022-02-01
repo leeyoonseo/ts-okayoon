@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
+import 'swiper/css';
+import 'swiper/css/bundle';
 
 const GlobalStyle = createGlobalStyle`
   ${normalize}
@@ -39,6 +41,8 @@ const GlobalStyle = createGlobalStyle`
   ul,
   li {
     list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   img {
