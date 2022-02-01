@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import * as S from './App.styled';
@@ -20,13 +20,13 @@ const apps = [
   {
     id: 'blog',
     name: '블로그',
-    routePath: '/',
+    routePath: 'https://okayoon.tistory.com/',
     iconSrc: '/apps/icon_blog.png',
   },
   {
     id: 'gallery',
     name: '사진첩',
-    routePath: '/',
+    routePath: '/gallery',
     iconSrc: '/apps/icon_gallery.png',
   },
   {
@@ -51,8 +51,14 @@ const apps = [
 
 const Apps = () => {
   const router = useRouter();
+
   const handleApp = (path: string): void => {
-    router.push(path);
+    const regEx = /https?:\/\//gi;
+    if (regEx.test(path)) {
+      window.open(path, '_blank');
+    } else {
+      router.push(path);
+    }
   };
 
   return (
