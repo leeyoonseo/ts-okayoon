@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Directions } from './GuestCard';
 
 export const GuestCardWrap = styled.div`
   width: 100%;
-  height: 255px;
   cursor: pointer;
   background: ${({ theme }) => theme.reverse};
   border-radius: 15px;
@@ -11,6 +11,14 @@ export const GuestCardWrap = styled.div`
   color: ${({ theme }) => theme.default};
   position: relative;
   box-sizing: border-box;
+
+  ${(props) =>
+    props.dir === Directions.VERTICAL &&
+    css`
+      height: 255px;
+    `}
+
+  ${(props) => props.dir === Directions.HORIZONTAL && css``}
 
   &:before {
     content: '';
@@ -28,12 +36,23 @@ export const GuestCardWrap = styled.div`
   }
 
   .guestcard-inner {
-    height: 220px;
     overflow: hidden;
-    display: -webkit-box;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
+
+    ${(props) =>
+      props.dir === Directions.VERTICAL &&
+      css`
+        height: 220px;
+        display: '-webkit-box';
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+      `}
+
+    ${(props) =>
+      props.dir === Directions.HORIZONTAL &&
+      css`
+        display: flex;
+      `}
   }
 
   .guestcard-avatar {
@@ -42,35 +61,61 @@ export const GuestCardWrap = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-`;
 
-export const GuestCardContents = styled.div`
-  width: 100%;
-
-  .info {
-    text-align: center;
-    margin-bottom: 4px;
-
-    & > span {
-      display: block;
-    }
-
-    &-nickname {
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    &-date {
-      font-size: 12px;
-      color: #666;
-    }
+    ${(props) =>
+      props.dir === Directions.HORIZONTAL &&
+      css`
+        margin: 0 20px;
+      `}
   }
 
-  .message {
-    display: block;
+  .guestcard-contents {
     width: 100%;
+
+    ${(props) =>
+      props.dir === Directions.HORIZONTAL &&
+      css`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      `}
+
+    .info {
+      text-align: center;
+      margin-bottom: 4px;
+
+      ${(props) =>
+        props.dir === Directions.HORIZONTAL &&
+        css`
+          width: 100%;
+        `}
+
+      ${(props) =>
+        props.dir === Directions.HORIZONTAL &&
+        css`
+          text-align: left;
+        `}
+
+      & > span {
+        display: block;
+      }
+
+      &-nickname {
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &-date {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+
+    .message {
+      display: block;
+      width: 100%;
+    }
   }
 `;

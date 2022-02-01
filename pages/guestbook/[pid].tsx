@@ -4,6 +4,16 @@ import GuestCard, {
   IGuestbook,
   IProps,
 } from '@/components/template/GuestCard/GuestCard';
+import styled from 'styled-components';
+
+// Styled
+const GuestbookDetailWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+`;
+
+//
 
 // * DEV
 import { dummyGuestbookData } from '@/constants/dummy';
@@ -29,7 +39,11 @@ const pid = () => {
   }, [pid]);
 
   return (
-    <div>{guestbook?.guestbookId && <GuestCard content={guestbook} />}</div>
+    <GuestbookDetailWrap>
+      {guestbook?.guestbookId && (
+        <GuestCard direction='horizontal' content={guestbook} />
+      )}
+    </GuestbookDetailWrap>
   );
 };
 

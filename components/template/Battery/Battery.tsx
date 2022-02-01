@@ -23,7 +23,6 @@ const Battery = (props: Props) => {
     let timerInterval = setInterval(() => {
       time = new Date();
       per = getCurrentGauge(time);
-      console.log('currentGauge', currentGauge);
 
       if (per === currentGauge) return;
 
