@@ -7,10 +7,6 @@ export const GuestbookWrap = styled.div`
   overflow-y: auto;
   padding: 20px 0;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
   .guestbook {
     padding: 0;
     margin: 0;

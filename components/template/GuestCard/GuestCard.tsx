@@ -55,7 +55,7 @@ const GuestCard = ({ direction = Directions.HORIZONTAL, content }: IProps) => {
             <div
               className='message'
               dangerouslySetInnerHTML={{ __html: content.message }}
-            ></div>
+            />
           </div>
         </div>
       </GuestCardWrap>

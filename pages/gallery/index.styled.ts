@@ -7,10 +7,6 @@ export const GalleryWrap = styled.div`
   padding: 20px;
   overflow-y: auto;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
   .card-list {
     &:after {
       display: block;
@@ -147,5 +143,15 @@ export const ImageCard = styled.li<{ src: string }>`
     &:nth-child(1n + 3) {
       margin-top: 16px;
     }
+  }
+`;
+
+export const LayerInner = styled.div`
+  .layer-img-wrapper {
+    margin-bottom: 10px;
+  }
+
+  .leyer-img-desc {
+    font-size: 13px;
   }
 `;

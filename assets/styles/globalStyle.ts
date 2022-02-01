@@ -15,6 +15,16 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Noto Sans KR', -apple-system, system-ui, BlinkMacSystemFont, Roboto, Arial, Helvetica, sans-serif, sans-serif;
   }
 
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.5)
+  }
+
   a {
     color: inherit;
     text-decoration: none;
