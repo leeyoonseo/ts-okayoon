@@ -57,3 +57,96 @@ export const dummyUser = {
   userImage: '',
   userNickname: '도토리',
 };
+
+export const dummyGallery = [
+  {
+    src: '/gallery/img00.JPG',
+    title: '0번0번0번0번0번0번0번0번0번0번0번0번0번0번0번',
+    desc: `0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글0번
+     소개글0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글
+     소개글0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글
+     소개글0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글
+     소개글0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글0번 소개글
+     `,
+  },
+  {
+    src: '/gallery/img01.JPG',
+    title: '1번',
+    desc: '1번 소개글',
+  },
+  {
+    src: '/gallery/img02.JPG',
+    title: '2번',
+    desc: '2번 소개글',
+  },
+  {
+    src: '/gallery/img03.JPG',
+    title: '3번',
+    desc: '3번 소개글',
+  },
+  {
+    src: '/gallery/img04.JPG',
+    title: '4번',
+    desc: '4번 소개글',
+  },
+  {
+    src: '/gallery/img05.JPG',
+    title: '5번',
+    desc: '5번 소개글',
+  },
+  {
+    src: '/gallery/img06.JPG',
+    title: '6번',
+    desc: '6번 소개글',
+  },
+  {
+    src: '/gallery/img07.JPG',
+    title: '7번',
+    desc: '7번 소개글',
+  },
+  {
+    src: '/gallery/img08.JPG',
+    title: '8번',
+    desc: '8번 소개글',
+  },
+  {
+    src: '/gallery/img09.JPG',
+    title: '9번',
+    desc: '9번 소개글',
+  },
+  {
+    src: '/gallery/img10.JPG',
+    title: '10번',
+    desc: '10번 소개글',
+  },
+  {
+    src: '/gallery/img11.JPG',
+    title: '11번',
+    desc: '11번 소개글',
+  },
+  {
+    src: '/gallery/img12.JPG',
+    title: '12번',
+    desc: '12번 소개글',
+  },
+  {
+    src: '/gallery/img13.JPG',
+    title: '13번',
+    desc: '13번 소개글',
+  },
+  {
+    src: '/gallery/img14.JPG',
+    title: '14번',
+    desc: '14번 소개글',
+  },
+  {
+    src: '/gallery/img15.JPG',
+    title: '15번',
+    desc: '15번 소개글',
+  },
+  {
+    src: '/gallery/img16.JPG',
+    title: '16번',
+    desc: '16번 소개글',
+  },
+];
